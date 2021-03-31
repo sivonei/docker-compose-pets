@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  Wweb:
+    image: chrch/docker-pets:1.0
+    networks:
+      - teste1
+    environment:
+      DB: db
+
+    ports:
+      - 8000:5000
+      - 7000:7000
+  db:
+    image: consul
+    networks:
+      - teste1
+
+networks:
+  teste1:
